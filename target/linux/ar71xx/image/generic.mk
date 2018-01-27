@@ -726,6 +726,18 @@ define Device/packet-squirrel
 endef
 TARGET_DEVICES += packet-squirrel
 
+define Device/wmm003n
+  $(Device/tplink-8mlzma)
+  DEVICE_TITLE := Pisen Cloud Easy Power (WMM003N)
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+  BOARDNAME := WMM003N
+  DEVICE_PROFILE := WMM003N
+  TPLINK_HWID := 0x07030101
+  CONSOLE := ttyATH0,115200
+  IMAGES := sysupgrade.bin
+endef
+TARGET_DEVICES += wmm003n
+
 define Device/pqi-air-pen
   DEVICE_TITLE := PQI Air Pen
   DEVICE_PACKAGES := kmod-usb-core kmod-usb2 kmod-usb-storage

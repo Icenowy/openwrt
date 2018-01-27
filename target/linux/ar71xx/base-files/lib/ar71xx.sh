@@ -1434,6 +1434,9 @@ ar71xx_board_detect() {
 	*"WLR-8100")
 		name="wlr8100"
 		;;
+	*"WMM003N")
+		name="wmm003n"
+		;;
 	*"WNDAP360")
 		name="wndap360"
 		;;

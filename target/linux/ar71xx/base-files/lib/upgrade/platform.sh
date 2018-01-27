@@ -494,6 +494,7 @@ platform_check_image() {
 	tl-wr941nd-v6|\
 	ts-d084|\
 	wifi-pineapple-nano)
+	wmm003n|\
 		local magic_ver="0100"
 
 		case "$board" in
