@@ -10,14 +10,41 @@ Cc: linux-spi@vger.kernel.org
 Acked-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: John Crispin <john@phrozen.org>
 ---
- arch/mips/include/asm/mach-ath79/ath79_spi_platform.h | 19 -------------------
+ include/linux/platform_data/spi-ath79.h | 16 -------------------
  drivers/spi/spi-ath79.c                               |  8 --------
  2 files changed, 27 deletions(-)
  delete mode 100644 arch/mips/include/asm/mach-ath79/ath79_spi_platform.h
 
+--- a/include/linux/platform_data/spi-ath79.h
++++ /dev/null
+@@ -1,16 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- *  Platform data definition for Atheros AR71XX/AR724X/AR913X SPI controller
+- *
+- *  Copyright (C) 2008-2010 Gabor Juhos <juhosg@openwrt.org>
+- */
+-
+-#ifndef _ATH79_SPI_PLATFORM_H
+-#define _ATH79_SPI_PLATFORM_H
+-
+-struct ath79_spi_platform_data {
+-	unsigned	bus_num;
+-	unsigned	num_chipselect;
+-};
+-
+-#endif /* _ATH79_SPI_PLATFORM_H */
 --- a/drivers/spi/spi-ath79.c
 +++ b/drivers/spi/spi-ath79.c
-@@ -138,7 +138,6 @@ static int ath79_spi_probe(struct platfo
+@@ -19,7 +19,6 @@
+ #include <linux/bitops.h>
+ #include <linux/clk.h>
+ #include <linux/err.h>
+-#include <linux/platform_data/spi-ath79.h>
+ 
+ #define DRV_NAME	"ath79-spi"
+ 
+@@ -138,7 +137,6 @@ static int ath79_spi_probe(struct platfo
  {
  	struct spi_master *master;
  	struct ath79_spi *sp;
@@ -25,7 +52,7 @@ Signed-off-by: John Crispin <john@phrozen.org>
  	unsigned long rate;
  	int ret;
  
-@@ -152,16 +151,10 @@ static int ath79_spi_probe(struct platfo
+@@ -152,16 +150,10 @@ static int ath79_spi_probe(struct platfo
  	master->dev.of_node = pdev->dev.of_node;
  	platform_set_drvdata(pdev, sp);
  
