@@ -192,3 +192,13 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  }
  
  static void write_if_changed(struct buffer *b, const char *fname)
+@@ -2656,7 +2666,9 @@ int main(int argc, char **argv)
+ 		add_staging_flag(&buf, mod->name);
+ 		err |= add_versions(&buf, mod);
+ 		add_depends(&buf, mod);
++#ifndef CONFIG_MODULE_STRIPPED
+ 		add_moddevtable(&buf, mod);
++#endif
+ 		add_srcversion(&buf, mod);
+ 
+ 		sprintf(fname, "%s.mod.c", mod->name);
