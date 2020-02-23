@@ -59,16 +59,15 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  /*
   * Given a pointer to the MTD object in the mtd_part structure, we can retrieve
   * the pointer to that structure.
-@@ -612,6 +616,8 @@ int mtd_add_partition(struct mtd_info *p
+@@ -612,6 +616,7 @@ int mtd_add_partition(struct mtd_info *p
  	if (ret)
  		goto err_remove_part;
  
 +	mtd_partition_split(parent, new);
-+
  	mtd_add_partition_attrs(new);
  
  	return 0;
-@@ -698,6 +704,29 @@ int mtd_del_partition(struct mtd_info *m
+@@ -698,6 +703,29 @@ int mtd_del_partition(struct mtd_info *m
  }
  EXPORT_SYMBOL_GPL(mtd_del_partition);
  
@@ -98,7 +97,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  /*
   * This function, given a master MTD object and a partition table, creates
   * and registers slave MTD objects which are bound to the master according to
-@@ -738,6 +767,7 @@ int add_mtd_partitions(struct mtd_info *
+@@ -738,6 +766,7 @@ int add_mtd_partitions(struct mtd_info *
  			goto err_del_partitions;
  		}
  

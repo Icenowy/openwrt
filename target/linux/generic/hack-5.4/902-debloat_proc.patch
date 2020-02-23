@@ -40,19 +40,6 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  	return 0;
 --- a/fs/proc/Kconfig
 +++ b/fs/proc/Kconfig
-@@ -81,10 +81,10 @@ config PROC_SYSCTL
- 	  limited in memory.
- 
- config PROC_PAGE_MONITOR
-- 	default y
-+	default y
- 	depends on PROC_FS && MMU
- 	bool "Enable /proc page monitoring" if EXPERT
-- 	help
-+	help
- 	  Various /proc files exist to monitor process memory utilization:
- 	  /proc/pid/smaps, /proc/pid/clear_refs, /proc/pid/pagemap,
- 	  /proc/kpagecount, and /proc/kpageflags. Disabling these
 @@ -100,6 +100,11 @@ config PROC_CHILDREN
  	  Say Y if you are running any user-space software which takes benefit from
  	  this interface. For example, rkt is such a piece of software.

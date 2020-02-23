@@ -65,7 +65,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  #define MAX_PARAM_PREFIX_LEN (64 - sizeof(unsigned long))
  
 +/* This struct is here for syntactic coherency, it is not used */
-+#define __MODULE_INFO_DISABLED(name)                                     \
++#define __MODULE_INFO_DISABLED(name)					  \
 +  struct __UNIQUE_ID(name) {}
 +
 +#ifdef CONFIG_MODULE_STRIPPED
