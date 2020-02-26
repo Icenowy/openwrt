@@ -67,3 +67,13 @@ define Device/xunlong_orangepi-zero-plus
   KERNEL := kernel-bin
 endef
 TARGET_DEVICES += xunlong_orangepi-zero-plus
+
+define Device/pine64_pine-h64
+  DEVICE_VENDOR := Pine64
+  DEVICE_MODEL := Pine H64
+  SUNXI_DTS_DIR := allwinner/
+  SOC := sun50i-h6
+  KERNEL_NAME := Image
+  KERNEL := kernel-bin
+endef
+TARGET_DEVICES += pine64_pine-h64
